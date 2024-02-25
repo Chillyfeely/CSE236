@@ -13,13 +13,13 @@
     <style>
       .sidebar {
         height: 100vh;
-        width: 250px;
+        width: 300px;
         position: fixed;
         background-color: #89accc;
       }
 
       .page-content {
-        margin-left: 250px;
+        margin-left: 300px;
         padding: 20px;
       }
 
@@ -48,23 +48,31 @@
 
   <body>
     <div class="sidebar">
-      <h4 class="text-center p-3">SIDEBAR</h4>
+      <h4 class="text-center p-3">TEACHER CONTROL PORTAL</h4>
       <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="#">PAGE NAME 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">PAGE NAME 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">PAGE NAME 3</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            EXAMS
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">See exams</a></li>
+            <li><a class="dropdown-item" href="#">Delete exams</a></li>
+            <li><a class="dropdown-item" href="#">Edit exams</a></li>
+            <li><a class="dropdown-item" href="#">Create exams</a></li>
+          </ul>
         </li>
       </ul>
     </div>
-
     <div class="page-content">
       <div class="upper-bar">
-        <div>ONLINE EXAM SITE</div>
+        <div>ONLINE EXAM SITE TEACHER UI</div>
         <div class="profile-picture"></div>
       </div>
       <div class="content">
