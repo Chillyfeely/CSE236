@@ -6,7 +6,7 @@
 ### CURRENT FUNCTIONALITIES
 Currently, everything is a placeholder for intended functionalities, and I am going to proceed with adding functionalities to navbar links.
 ### Here is a screenshot of this project currently
-![alt text](https://github.com/chillyfeely/CSE236/blob/main/Screenshot_from_2024-02-25.png?raw=true)
+![alt text](https://github.com/chillyfeely/CSE236/blob/main/screenshots_of_the_project/Screenshot_from_2024-02-25.png?raw=true)
 
 ## SECOND COMMIT 02/03/2024
 - Flask will be used instead of php
