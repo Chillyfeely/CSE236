@@ -76,16 +76,19 @@
           <!-- Mail sections (hidden by default) -->
           <div class="collapse" id="mailsCollapse">
             <a
+              id="sentEmailsBtn"
               href="#"
               class="list-group-item list-group-item-action list-group-item-light p-3 ps-5"
-              >Sent Mail</a
+              >Sent Emails</a
             >
             <a
+              id="receivedEmailsBtn"
               href="#"
               class="list-group-item list-group-item-action list-group-item-light p-3 ps-5"
-              >Received Mail</a
+              >Received Emails</a
             >
             <a
+              id="sendEmailBtn"
               href="#"
               class="list-group-item list-group-item-action list-group-item-light p-3 ps-5"
               >Send Email</a
@@ -296,6 +299,7 @@
                       </div>
                       <img
                         src="{{ url_for('static', filename='images/card3.png') }}"
+                        alt="Card 3 Image"
                         class="card-img"
                       />
                       <div
@@ -338,6 +342,70 @@
           <div id="profileContent" style="display: none">
             <h1 class="mt-4">Profile</h1>
             <p>Welcome to your profile.</p>
+          </div>
+
+          <div id="sentEmailsContent" style="display: none">
+            <div class="container">
+              <h1 class="mt-4 text-center">Sent Emails</h1>
+              <p class="text-center">Here you can see your sent emails</p>
+              <table class="table table-striped mx-auto">
+                <thead>
+                  <tr>
+                    <th scope="col">Date Sent</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for email in emails|reverse %}
+                  <tr>
+                    <td>{{ email.date_sent.date() }}</td>
+                    <td>{{ email.content }}</td>
+                    <td>
+                      {% if email.filename %}
+                      <img
+                        src="{{ url_for('static', filename='images/'+email.filename) }}"
+                        alt="Email image"
+                        width="100"
+                      />
+                      {% else %} No image {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="sendEmailContent" style="display: none">
+            <h1 class="mt-4">Send Email</h1>
+            <p>For assistance with any site issues, please email us.</p>
+            <form
+              method="POST"
+              action="/send_email"
+              enctype="multipart/form-data"
+              class="row g-3"
+            >
+              <div class="col-12">
+                <label for="message" class="form-label">Email content</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Email content"
+                ></textarea>
+              </div>
+              <div class="col-12">
+                <label for="file" class="form-label">Attach file</label>
+                <input class="form-control" type="file" id="file" name="file" />
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">
+                  Send Email
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
