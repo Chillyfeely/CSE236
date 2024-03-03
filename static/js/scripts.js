@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', event => {
         'dashboardBtn': 'dashboardContent',
         'profileBtn': 'profileContent',
         'profileBtn2': 'profileContent',
+        'mailBtn': ['sentMail', 'receivedMail', 'sendEmail'], 
         // ...add more here...
     };
 
@@ -29,15 +30,21 @@ window.addEventListener('DOMContentLoaded', event => {
                 event.preventDefault();
                 // Hide all page content divs
                 for (let contentId in pageContentIds) {
-                    const contentDiv = document.body.querySelector('#' + pageContentIds[contentId]);
-                    if (contentDiv) {
-                        contentDiv.style.display = 'none';
+                    const contentDivs = Array.isArray(pageContentIds[contentId]) ? pageContentIds[contentId] : [pageContentIds[contentId]];
+                    for (let contentDivId of contentDivs) {
+                        const contentDiv = document.body.querySelector('#' + contentDivId);
+                        if (contentDiv) {
+                            contentDiv.style.display = 'none';
+                        }
                     }
                 }
-                // Show the page content div for the clicked link
-                const contentDiv = document.body.querySelector('#' + pageContentIds[linkId]);
-                if (contentDiv) {
-                    contentDiv.style.display = 'block';
+                // Show the page content div(s) for the clicked link
+                const contentDivs = Array.isArray(pageContentIds[linkId]) ? pageContentIds[linkId] : [pageContentIds[linkId]];
+                for (let contentDivId of contentDivs) {
+                    const contentDiv = document.body.querySelector('#' + contentDivId);
+                    if (contentDiv) {
+                        contentDiv.style.display = 'block';
+                    }
                 }
             });
         }

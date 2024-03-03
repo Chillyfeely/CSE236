@@ -1,160 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>ACADEMIC EXAM AUTOMATION SYSTEM</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="d-flex" id="wrapper">
-            <!-- Sidebar-->
-            <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light" style="text-align: center;">
-                    <a id="homeBtn" href="#!">
-                        <img src="{{ url_for('static', filename='images/AEAS.ico') }}" alt="Icon description" style="height:100px; width:100px; display: block; margin: auto;">
-                    </a>
-                    AEAS
-                </div>
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="profileBtn" href="#!">Profile</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="dashboardBtn" href="#!">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
-                </div>
-            </div>
-            <!-- Page content wrapper-->
-            <div id="page-content-wrapper">
-                <!-- Top navigation-->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <div class="container-fluid" id="landingPage">
-                        <button class="btn btn-primary" id="sidebarToggle" style="background: none; border: none;">
-                            <img src="{{ url_for('static', filename='images/sidebar.png') }}" alt="Image description" style="height:35px; width:35px; margin:5px;">
-                        </button>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#!">
-                                        <img src="{{ url_for('static', filename='images/mail.png') }}" alt="Image description" style="height:20px; width:20px;">
-                                    </a>
-                                </li>
-                                <li class="nav-item active"><a class="nav-link" id="homeBtn2" href="#!">Home</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" id="profileBtn2" href="#!">Profile</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#!">Safe Logout</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <!-- Page content-->
-                <div class="container-fluid" id="pageContent">
-                    <div id="homeContent" style="display: none;">
-                        <h1 class="mt-4">ACADEMIC EXAM AUTOMATION SYSTEM</h1>
-                        <p>Exam Automation for Universities</p>
-                        <div id="homeContent" style="display: flex; justify-content: space-between;">
-
-
-                            <!-- Card 1 -->
-                            <div class="card" style="margin: 5px;">
-                                <div class="card-preview">
-                                    <div class="fuse-card">
-                                        <div class="p-16">
-                                            <div class="h1">Soru hazırlama modülü</div>
-                                            <div class="h4 secondary-text"> Basit, ilişkili, entegre soru hazırlayın </div>
-                                        </div>
-                                        <img src="{{ url_for('static', filename='images/card1.png') }}" class="card-img">
-                                        <div class="p-16 pt-0 line-height-1.75" style="padding: 5px;"> 
-                                            Soru hazırlama yetkisi olan kullanıcıların (öğretim üyeleri, öğretim görevlileri, okutmanlar vb.) soru hazırlamasına katkıda bulunacak yönlendirici öğeler içerir. Bu modül 3 farklı soru türüne <b>(basit, ilişkili ve entegre)</b> izin verir. Sınırsız sayıda soru barındırabilir. Modül tarafından depolanan sorular bir ID ile veri tabanında kriptolu olarak saklanmaktadır. Gerektiğinde bir anahtar sözcük kullanılarak depolanmış bir soruya kolaylıkla ulaşılabilir. 
-                                            <p><b>Başlıca soru özellikleri:</b></p>
-                                            <ul>
-                                                <li> Bilişsel düzey, zorluk derecesi, kabul edilebilirlik indeksi, kümülatif güçlük indeksi, geçerlilik tarihleri, öğrenim hedefleriyle ilişkisi, akran değerlendirmesi </li>
-                                            </ul> 
-                                            Sorular, yetkilendirilmiş ve görevlendirilmiş bir kişi/kurul tarafından akran değerlendirilmesinden geçer. Teknik denetimden geçen ve onay alan sorular sınavlarda çıkabilir hale gelir. Denetlemede sorunların görülmesi halinde ise soruyu hazırlayan kullanıcıya sorunu açıklayan ve çözüm önerileri içeren bir e-posta gönderilir.
-                                            <p>ASOS bu özelliklere ek olarak, <b>Çekirdek Eğitim Programı</b> ve <b>Türkiye Yükseköğretim Yeterlilikler Çerçevesi</b> ile tam uyumludur. Sorular öğrenim hedefi, çekirdek hastalık vb. ile eşleştirilebilmektedir.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- Card 2 -->
-                            <div class="card" style="margin: 5px;">
-                                <div class="card-preview">
-                                    <div class="fuse-card">
-                                        <div class="p-16" style="padding: 5px;">
-                                            <div class="h1">Sınav soru planlama modülü</div>
-                                            <div class="h4 secondary-text"> Çeşitli parametrelere göre sınav yaratın </div>
-                                        </div>
-                                        <img src="{{ url_for('static', filename='images/card2.png') }}" class="card-img">
-                                        <div class="p-16 pt-0 line-height-1.75" style="padding: 5px;"> 
-                                            Sınav otomasyon sisteminde sınav oluşturma yetkisi sadece yönetim tarafından belirlenen sınav oluşturma görevlilerine (dönem koordinatörleri, sınav koordinatörleri, ders kurulu başkanları, sınav görevlileri vb.) verilmiştir. Bu görevliler tarafından yaklaşan sınav takvimine uygun olarak 
-                                            <ul>
-                                                <li>Ders, </li>
-                                                <li>Ders kurulu</li>
-                                            </ul> 
-                                            sınavlarının planları oluşturularak yapılacak sınavla ilgili ön hazırlıklar başlatılır. 
-                                            <p> Öğretim üyelerine ve soru kontrol görevlilerine sistem üzerinden eksikliklere yönelik uyarı e-postaları gönderilir. </p> 
-                                            Sınav hazırlama aşamasında sorular çeşitli algoritmalarla sistem tarafından otomatik olarak seçilir. Sorular çeşitli parametrelere göre (ders saati, öğrenim hedefi, kredi, zorluk derecesi, kabul edilebilirlik indeksi, favori soru veya anahtar kelimeler) filtrelenir. Filtreleme sonucunda seçilen sorular listeye eklenir. Soru seçimi toplam sınav soru sayısına ulaşana kadar devam eder. Sistem tarafından soru seçimi yapıldıktan sonra ilgili öğretim üyelerine sınavda çıkacak soruları ile ilgili bilgilendirme e-postası gönderilir. 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        
-                            <!-- Card 3 -->
-                            <div class="card" style="margin: 5px;">
-                                <div class="card-preview">
-                                    <div class="fuse-card">
-                                        <div class="p-16" style="padding: 5px;">
-                                            <div class="h1">Sınav modülü</div>
-                                            <div class="h4 secondary-text"> Klasik, elektronik veya <b>tüm güvenlik önlemleri düşünülmüş uzaktan</b> sınav yapın </div>
-                                        </div>
-                                        <img src="{{ url_for('static', filename='images/card3.png') }}" class="card-img">
-                                        <div class="p-16 pt-0 line-height-1.75" style="padding: 5px;"> 
-                                            Sınav modülünde ilk süreç sınav kitapçıklarının hazırlanmasıdır. Sınav için planlanan soru sayısına ulaşıldıktan sonra seçilen sorular sınav görevlileri tarafından incelenir. Sınavda çıkacak sorular onaylandıktan sonra kitapçık (basılı veya elektronik) hazırlık süreci başlar. İstenilen çeşitte ve sınırsız sayıda kitapçık oluşturulabilir. Bu kitapçıklarla birden fazla oturumda ve farklı şubelerde sınav yapılabilir. Her soru kitapçığı için cevap anahtarları sistem tarafından hazırlanır. Hazırlanan bu kitapçıklara göre 5 farklı 
-                                            <ul>
-                                                <li>Dönem içi/Vize,</li>
-                                                <li>Final,</li>
-                                                <li>Bütünleme,</li>
-                                                <li>Hazır bulunurluk,</li>
-                                                <li>Gelişim</li>
-                                            </ul> 
-                                            sınav yapılabilir. Her bir kitapçıktaki soruların ve seçeneklerin yerleri sistem tarafından otomatik olarak harmanlanabilir. Klasik (sınavı kitapçığı basılı), elektronik (bilgisayar laboratuvarları veya sınav merkezlerinde) veya <b>tüm güvenlik önlemleri düşünülmüş</b> uzaktan (elektronik) sınav yapabilme seçenekleri sunar. 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                
-                    <div id="profileContent" style="display: none;">
-                        <h1 class="mt-4">Profile</h1>
-                        <p>Welcome to your profile.</p>
-                    </div>
-                
-                    <!-- ...add more here... -->
-                
-                </div>
-            </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>ACADEMIC EXAM AUTOMATION SYSTEM</title>
+    <!-- Favicon-->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link
+      href="{{ url_for('static', filename='css/styles.css') }}"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+        <div
+          class="sidebar-heading border-bottom bg-light"
+          style="text-align: center"
+        >
+          <a id="homeBtn" href="#!">
+            <img
+              src="{{ url_for('static', filename='images/AEAS.ico') }}"
+              alt="Icon description"
+              style="height: 100px; width: 100px; display: block; margin: auto"
+            />
+          </a>
+          AEAS
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
-    </body>
+        <div class="list-group list-group-flush">
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            id="profileBtn"
+            href="#!"
+            >Profile</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            id="dashboardBtn"
+            href="#!"
+            >Dashboard</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="#!"
+            >Events</a
+          >
+          <!-- Mails button -->
+          <button
+            class="list-group-item list-group-item-action list-group-item-light p-3 d-flex justify-content-between align-items-center"
+            data-bs-toggle="collapse"
+            data-bs-target="#mailsCollapse"
+            aria-expanded="false"
+            aria-controls="mailsCollapse"
+          >
+            Mails
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <!-- Mail sections (hidden by default) -->
+          <div class="collapse" id="mailsCollapse">
+            <a
+              href="#"
+              class="list-group-item list-group-item-action list-group-item-light p-3 ps-5"
+              >Sent Mail</a
+            >
+            <a
+              href="#"
+              class="list-group-item list-group-item-action list-group-item-light p-3 ps-5"
+              >Received Mail</a
+            >
+            <a
+              href="#"
+              class="list-group-item list-group-item-action list-group-item-light p-3 ps-5"
+              >Send Email</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <div class="container-fluid" id="landingPage">
+            <button
+              class="btn btn-primary"
+              id="sidebarToggle"
+              style="background: none; border: none"
+            >
+              <img
+                src="{{ url_for('static', filename='images/sidebar.png') }}"
+                alt="Image description"
+                style="height: 35px; width: 35px; margin: 5px"
+              />
+            </button>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="#!">
+                    <img
+                      src="{{ url_for('static', filename='images/mail.png') }}"
+                      alt="Image description"
+                      style="height: 20px; width: 20px"
+                    />
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" id="homeBtn2" href="#!">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    id="navbarDropdown"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Username</a
+                  >
+                  <div
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <a class="dropdown-item" id="profileBtn2" href="#!"
+                      >Profile</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#!">Safe Logout</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid" id="pageContent">
+          <div id="homeContent" style="display: none">
+            <h1 class="mt-4">ACADEMIC EXAM AUTOMATION SYSTEM</h1>
+            <p>Exam Automation for Universities</p>
+            <div id="homeContent" class="row">
+              <!-- Card 1 -->
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                  <div class="card-preview">
+                    <div class="fuse-card">
+                      <div class="p-16">
+                        <div class="h1">Question Preparation Module</div>
+                        <div class="h4 secondary-text">
+                          Prepare simple, related, integrated questions
+                        </div>
+                      </div>
+                      <img
+                        src="{{ url_for('static', filename='images/card1.png') }}"
+                        class="card-img"
+                      />
+                      <div
+                        class="p-16 pt-0 line-height-1.75"
+                        style="padding: 5px"
+                      >
+                        Contains guiding elements that will contribute to the
+                        question preparation process for users with question
+                        preparation authority (faculty members, instructors,
+                        lecturers, etc.). This module allows for 3 different
+                        types of questions
+                        <b>(simple, related, and integrated)</b> and can host an
+                        unlimited number of questions. The questions stored by
+                        the module are encrypted and stored in the database with
+                        an ID. When needed, a stored question can be easily
+                        accessed using a keyword.
+                        <p><b>Main features of the questions:</b></p>
+                        <ul>
+                          <li>
+                            Cognitive level, difficulty level, acceptability
+                            index, cumulative difficulty index, validity dates,
+                            relation to learning objectives, peer review
+                          </li>
+                        </ul>
+                        Questions go through peer review by an authorized and
+                        appointed person/board. Questions that pass the
+                        technical inspection and are approved can appear in
+                        exams. If problems are detected during the inspection,
+                        an email will be sent to the user who prepared the
+                        question, explaining the problem and suggesting
+                        solutions.
+                        <p>
+                          In addition to these features, ASOS is fully
+                          compatible with the <b>Core Education Program</b> and
+                          the
+                          <b
+                            >Turkish Higher Education Qualifications
+                            Framework</b
+                          >. Questions can be matched with learning objectives,
+                          core diseases, etc.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                  <div class="card-preview">
+                    <div class="fuse-card">
+                      <div class="p-16" style="padding: 5px">
+                        <div class="h1">Exam Question Planning Module</div>
+                        <div class="h4 secondary-text">
+                          Create exams based on various parameters
+                        </div>
+                      </div>
+                      <img
+                        src="{{ url_for('static', filename='images/card2.png') }}"
+                        class="card-img"
+                      />
+                      <div
+                        class="p-16 pt-0 line-height-1.75"
+                        style="padding: 5px"
+                      >
+                        In the exam automation system, the authority to create
+                        exams is given only to exam creation officers (semester
+                        coordinators, exam coordinators, course board
+                        chairpersons, exam staff, etc.) designated by the
+                        administration. These officers begin preliminary
+                        preparations related to the exams to be conducted by
+                        creating plans for
+                        <ul>
+                          <li>Course,</li>
+                          <li>Course board</li>
+                        </ul>
+                        exams in accordance with the upcoming exam schedule.
+                        <p>
+                          Notification emails are sent to faculty members and
+                          question control officers through the system for any
+                          deficiencies.
+                        </p>
+                        During the exam preparation phase, questions are
+                        automatically selected by the system through various
+                        algorithms. Questions are filtered according to various
+                        parameters (class hours, learning objectives, credits,
+                        difficulty level, acceptability index, favorite
+                        questions, or keywords). The selected questions are
+                        added to the list as a result of filtering. The
+                        selection of questions continues until the total number
+                        of exam questions is reached. After the system makes the
+                        question selection, an informational email is sent to
+                        the relevant faculty members about the questions that
+                        will appear in the exam.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                  <div class="card-preview">
+                    <div class="fuse-card">
+                      <div class="p-16" style="padding: 5px">
+                        <div class="h1">Exam Module</div>
+                        <div class="h4 secondary-text">
+                          Conduct traditional, electronic, or
+                          <b>fully secure remote</b> exams
+                        </div>
+                      </div>
+                      <img
+                        src="{{ url_for('static', filename='images/card3.png') }}"
+                        class="card-img"
+                      />
+                      <div
+                        class="p-16 pt-0 line-height-1.75"
+                        style="padding: 5px"
+                      >
+                        The first process in the exam module is the preparation
+                        of exam booklets. After reaching the planned number of
+                        questions for the exam, the selected questions are
+                        reviewed by the exam staff. Once the questions to be
+                        included in the exam are approved, the preparation
+                        process for the booklet (printed or electronic) begins.
+                        An unlimited number of booklets of the desired variety
+                        can be created. Exams can be conducted with these
+                        booklets in multiple sessions and different branches.
+                        Answer keys for each question booklet are prepared by
+                        the system. Based on these prepared booklets, 5
+                        different types of exams can be conducted:
+                        <ul>
+                          <li>Midterm/Quizzes,</li>
+                          <li>Final,</li>
+                          <li>Make-up,</li>
+                          <li>Readiness,</li>
+                          <li>Development</li>
+                        </ul>
+                        The positions of the questions and options in each
+                        booklet can be automatically randomized by the system.
+                        It offers options to conduct traditional (printed exam
+                        booklets), electronic (in computer labs or exam
+                        centers), or <b>fully secure</b> remote (electronic)
+                        exams.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="profileContent" style="display: none">
+            <h1 class="mt-4">Profile</h1>
+            <p>Welcome to your profile.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+  </body>
 </html>
