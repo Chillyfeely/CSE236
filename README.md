@@ -21,6 +21,7 @@ Currently we can change the page content with clicking various buttons on sideba
 - SQLite is started to be used for database
 - Made a send and see sent mails section for getting feedbacks from our users
 - I made a decision for Readme.md syntax from now on I dont write "CURRENT FUNCTIONALITIES" instead I will use "ADDED FUNCTIONALITIES"
+- Landing page's mockup data translated to english
 ### ADDED FUNCTIONALITIES
 - A sidebar mechanic I'd like to call pregnant button (it gives birth to 3 new buttons)
 - User communication system with using SQLite database and Flask
