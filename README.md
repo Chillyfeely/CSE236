@@ -15,4 +15,4 @@ Currently, everything is a placeholder for intended functionalities, and I am go
 ### CURRENT FUNCTIONALITIES
 Currently we can change the page content with clicking various buttons on sidebar or topbar without altering url or changing html
 ### Here is a screenshot of this project currently
-![alt text](https://github.com/chillyfeely/CSE236/blob/main/Screenshot_from_2024-03-03.png?raw=true)
+![alt text](https://github.com/chillyfeely/CSE236/blob/main/screenshots_of_the_project/Screenshot_from_2024-03-03.png?raw=true)
