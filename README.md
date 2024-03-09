@@ -25,6 +25,6 @@ Currently we can change the page content with clicking various buttons on sideba
 ### ADDED FUNCTIONALITIES
 - A sidebar mechanic I'd like to call pregnant button (it gives birth to 3 new buttons)
 - User communication system with using SQLite database and Flask
-### Here are 2 screenshots of these functionalities
+### Here are 2 screenshots of those functionalities
 ![alt text](https://github.com/chillyfeely/CSE236/blob/main/screenshots_of_the_project/Screenshot_from_2024-03-04_1.png?raw=true)
 ![alt text](https://github.com/chillyfeely/CSE236/blob/main/screenshots_of_the_project/Screenshot_from_2024-03-04_2.png?raw=true)
