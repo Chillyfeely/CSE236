@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     mailBtn: ["sentEmail", "receivedEmail", "sendEmail"],
     sendEmailBtn: "sendEmailContent",
     sentEmailsBtn: "sentEmailsContent",
+    createCourseBtn: "createCourseContent",
     // ...add more here...
   };
 

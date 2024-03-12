@@ -94,6 +94,12 @@
               >Send Email</a
             >
           </div>
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            id="createCourseBtn"
+            href="#!"
+            >Create Course</a
+          >
         </div>
       </div>
       <!-- Page content wrapper-->
@@ -403,6 +409,60 @@
               <div class="col-12">
                 <button type="submit" class="btn btn-primary">
                   Send Email
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div id="createCourseContent" style="display: none">
+            <h1 class="mt-4">Create Course</h1>
+            <p>You can create courses here!</p>
+            <form
+              method="POST"
+              action="/create_course"
+              enctype="multipart/form-data"
+              class="row g-3"
+            >
+              <div class="col-12">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="numOfStudents" class="form-label"
+                  >Number of Students</label
+                >
+                <input
+                  class="form-control"
+                  type="number"
+                  id="numOfStudents"
+                  name="numOfStudents"
+                  placeholder="Number of Students"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="numOfExams" class="form-label"
+                  >Number of Exams</label
+                >
+                <input
+                  class="form-control"
+                  type="number"
+                  id="numOfExams"
+                  name="numOfExams"
+                  placeholder="Number of Exams"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">
+                  Create Course
                 </button>
               </div>
             </form>

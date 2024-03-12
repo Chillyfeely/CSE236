@@ -21,6 +21,16 @@ class Mail(db.Model):
         return "<SentMail %r>" % self.id
 
 
+class courseData(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    NAME = db.Column(db.String(200), nullable=False)
+    NumOfStudents = db.Column(db.Integer, nullable=False)
+    NumOfExams = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return "<courseData %r>" % self.id
+
+
 with app.app_context():
     db.create_all()
 
@@ -50,6 +60,26 @@ def send_email():
         return redirect(url_for("index"))
     except:
         flash("There was an issue storing the email")
+        return redirect(url_for("index"))
+
+
+@app.route("/create_course", methods=["POST"])
+def create_course():
+    name = request.form["name"]
+    NumOfStudents = request.form["numOfStudents"]
+    NumOfExams = request.form["numOfExams"]
+
+    new_course = courseData(
+        NAME=name, NumOfStudents=NumOfStudents, NumOfExams=NumOfExams
+    )
+
+    try:
+        db.session.add(new_course)
+        db.session.commit()
+        flash("Course stored successfully")
+        return redirect(url_for("index"))
+    except:
+        flash("There was an issue storing the course")
         return redirect(url_for("index"))
 
 
